@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الجدول الزمني لتاريخ الأردن (Swiper.js)</title>
+    <!-- رابط Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #004080;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+
+        .instructions {
+            text-align: center;
+            margin: 20px auto;
+            color: #555;
+            font-style: italic;
+        }
+
+        .timeline-swiper-container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 40px 0; /* مساحة أكبر للخط والنقاط */
+            position: relative;
+        }
+        
+        .timeline-swiper-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10px; 
+            right: 10px;
+            height: 4px;
+            background-color: #004080;
+            transform: translateY(-50%);
+            z-index: 0; 
+        }
+
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            box-sizing: border-box;
+            padding: 10px; 
+            height: auto; /* لتسمح للبطاقات بتحديد ارتفاعها */
+        }
+
+        .timeline-event {
+            width: 300px; 
+            min-height: 180px; /* ارتفاع أدنى للبطاقة، يمكن تعديله */
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            position: relative; 
+            z-index: 1; 
+        }
+        
+        .timeline-event::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 18px;
+            height: 18px;
+            background-color: #004080; 
+            border: 3px solid #fff; 
+            border-radius: 50%;
+            z-index: 2; 
+            /* النقطة الآن في منتصف البطاقة، الخط الرئيسي يمر من خلفها */
+        }
+
+
+        .event-date {
+            font-weight: bold;
+            color: #c00000;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .event-content h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.20em; /* تصغير قليلاً لكثرة النصوص */
+            color: #2c3e50;
+        }
+
+        .event-content p {
+            font-size: 0.85em; /* تصغير قليلاً */
+            color: #555;
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #004080; 
+            top: 50%; /* لضمان توسطها عمودياً */
+            transform: translateY(-50%);
+        }
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 28px !important; 
+        }
+        /* تعديل موقع الأسهم لتكون خارج منطقة الشرائح قليلاً */
+        .swiper-button-prev { left: -5px; }
+        .swiper-button-next { right: -5px; }
+
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>الجدول الزمني لتاريخ الأردن (Swiper.js)</h1>
+    </header>
+
+    <p class="instructions">اسحب يمينًا ويسارًا أو استخدم الأسهم للتنقل.</p>
+
+    <div class="swiper-container timeline-swiper-container">
+        <div class="swiper-wrapper">
+            <!-- الشرائح (الأحداث) - الآن مع جميع الأحداث -->
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">حوالي 1.5 مليون سنة – 10,000 ق.م</div>
+                    <div class="event-content"><h3>العصور الحجرية القديمة</h3><p>ظهور آثار الإنسان المادية في مناطق مختلفة من الأردن.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">حوالي 10,000 ق.م – 4500 ق.م</div>
+                    <div class="event-content"><h3>العصر الحجري الحديث</h3><p>ظهور تجمعات وقرى زراعية صغيرة، مثل قرية عين غزال.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">حوالي 4500 ق.م – 3300 ق.م</div>
+                    <div class="event-content"><h3>العصر النحاسي</h3><p>ظهور بلدات مستقرة، مثل وادي فينان وتليلات الغسول.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">حوالي 3300 ق.م – 1200 ق.م</div>
+                    <div class="event-content"><h3>العصر البرونزي</h3><p>نشوء المدن المحاطة بالأسوار واستخدام الري المنظم.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">حوالي 1200 ق.م – 539 ق.م</div>
+                    <div class="event-content"><h3>العصر الحديدي</h3><p>قيام الممالك العربية الأدومية (بصيرا)، المؤابية (ذيبان)، والعمونية (ربة عمون/عمان).</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">القرن السادس قبل الميلاد</div>
+                    <div class="event-content"><h3>مملكة الأنباط</h3><p>تتأسس في جنوب الأردن وتتخذ من البترا عاصمة لها.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">القرن الرابع قبل الميلاد</div>
+                    <div class="event-content"><h3>الحكم اليوناني</h3><p>دخول الأردن تحت الحكم اليوناني.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">القرن الأول قبل الميلاد</div>
+                    <div class="event-content"><h3>بداية الحكم الروماني</h3><p>إعادة تعمير المدن اليونانية وتشكيل حلف الديكابولس.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">حوالي 629م وما بعدها</div>
+                    <div class="event-content"><h3>العصور الإسلامية المبكرة</h3><p>توجه الجيوش الإسلامية لفتح بلاد الشام منذ عهد الرسول (ﷺ).</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">632م – 634م</div>
+                    <div class="event-content"><h3>عهد أبي بكر الصديق</h3><p>ضم أراضي الأردن تحت راية الإسلام بعد معارك مع الروم.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">661م – 750م</div>
+                    <div class="event-content"><h3>العصر الأموي</h3><p>اهتمام الخلفاء الأمويين بالأردن وبناء القصور (عمرة، المشتى، إلخ).</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">بداية القرن 5هـ / 11م</div>
+                    <div class="event-content"><h3>حملات الفرنجة</h3><p>تعرض بلاد الشام لحملات الفرنجة وسيطرتهم وبناء القلاع (الشوبك، الكرك).</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">583هـ / 1187م</div>
+                    <div class="event-content"><h3>صلاح الدين الأيوبي</h3><p>يستعيد القلاع بعد انتصاره في حطين وتحرير القدس.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">أواخر ق 12 - منتصف ق 13 م</div>
+                    <div class="event-content"><h3>العصر الأيوبي</h3><p>بناء قلاع عجلون والسلط ومسجد عجلون الكبير.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">منتصف ق 13 - بداية ق 16 م</div>
+                    <div class="event-content"><h3>العصر المملوكي</h3><p>استمرار الاهتمام ببناء القلاع وتجديدها (العقبة، الشوبك).</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">1516م</div>
+                    <div class="event-content"><h3>الحكم العثماني</h3><p>دخول بلاد الشام تحت الحكم العثماني بعد معركة مرج دابق.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">أواخر العصر العثماني</div>
+                    <div class="event-content"><h3>سياسة التتريك</h3><p>سيطرة حزب الاتحاد والترقي وتطبيق سياسة التتريك.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">1914 - 1918م</div>
+                    <div class="event-content"><h3>الحرب العالمية الأولى</h3><p>دخول الدولة العثمانية الحرب العالمية الأولى.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">1915م</div>
+                    <div class="event-content"><h3>ميثاق دمشق</h3><p>يحدد مطالب الحركة العربية بتأسيس دولة عربية.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">يونيو 1916م</div>
+                    <div class="event-content"><h3>الثورة العربية الكبرى</h3><p>إعلان الشريف الحسين بن علي انطلاق الثورة العربية الكبرى.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">1916 - 1918م</div>
+                    <div class="event-content"><h3>انتصارات الثورة</h3><p>قوات الثورة تحقق انتصارات على الجيوش العثمانية.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">1916م</div>
+                    <div class="event-content"><h3>اتفاقية سايكس بيكو</h3><p>اتفاقية سرية لتقسيم بلاد الشام والعراق.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">1917م</div>
+                    <div class="event-content"><h3>وعد بلفور</h3><p>إعلان بريطانيا وعد بلفور لإنشاء وطن قومي لليهود في فلسطين.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">1920م</div>
+                    <div class="event-content"><h3>حكومة فيصل في سوريا</h3><p>الأمير فيصل بن الحسين يؤسس حكومة عربية في سوريا.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">أبريل 1920م</div>
+                    <div class="event-content"><h3>مؤتمر سان ريمو</h3><p>يقر الانتداب الفرنسي والبريطاني على بلاد الشام والعراق.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">يوليو 1920م</div>
+                    <div class="event-content"><h3>انهيار حكومة فيصل</h3><p>بعد معركة ميسلون ووقوع سوريا ولبنان تحت الانتداب الفرنسي.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">أواخر 1920م</div>
+                    <div class="event-content"><h3>حكومات محلية بالأردن</h3><p>تشكل حكومات محلية في الكرك والسلط وعجلون بعد الفراغ السياسي.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">نوفمبر 1920م</div>
+                    <div class="event-content"><h3>وصول الأمير عبد الله معان</h3><p>وصول الأمير عبد الله بن الحسين إلى معان.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">2 مارس 1921م</div>
+                    <div class="event-content"><h3>وصول الأمير عبد الله عمان</h3><p>وصول الأمير عبد الله بن الحسين إلى عمان.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">29 مارس 1921م</div>
+                    <div class="event-content"><h3>لقاء القدس</h3><p>لقاء الأمير عبد الله مع تشرتشل وصموئيل في القدس.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">11 أبريل 1921م</div>
+                    <div class="event-content"><h3>تأسيس إمارة شرق الأردن</h3><p>الأمير عبد الله يؤسس الإمارة ويكلف رشيد طليع بأول حكومة.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">20 فبراير 1928م</div>
+                    <div class="event-content"><h3>المعاهدة الأردنية البريطانية</h3><p>تعترف بتأسيس إمارة شرق الأردن.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">1928م</div>
+                    <div class="event-content"><h3>المؤتمر الوطني الأول</h3><p>في عمان، يصدر الميثاق الوطني الأردني الأول.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">1929 - 1933م</div>
+                    <div class="event-content"><h3>مؤتمرات وطنية أخرى</h3><p>تساند جهود الأمير عبد الله نحو الاستقلال.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">1945م</div>
+                    <div class="event-content"><h3>اعتراف بريطاني</h3><p>بريطانيا تعترف بأن الأردن وصل لمرحلة استكمال بناء مؤسساته.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">28 يناير 1946م</div>
+                    <div class="event-content"><h3>مذكرة الاستقلال</h3><p>الأمير عبد الله يوجه مذكرة للحكومة البريطانية مصرًا على الاستقلال.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">15 مايو 1946م</div>
+                    <div class="event-content"><h3>اقتراح الاستقلال</h3><p>مجلس الوزراء والبلديات تقترح على المجلس التشريعي إعلان الاستقلال.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">22 مايو 1946م</div>
+                    <div class="event-content"><h3>إقرار التعديلات الدستورية</h3><p>المجلس التشريعي يقر تعديلات دستورية نحو المملكة.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">25 مايو 1946م</div>
+                    <div class="event-content"><h3>إعلان استقلال المملكة</h3><p>إعلان استقلال المملكة الأردنية الهاشمية.</p></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="timeline-event">
+                    <div class="event-date">بعد 1946م</div>
+                    <div class="event-content"><h3>مرحلة النهضة والبناء</h3><p>في عهد الملك المؤسس، واستمرارها في عهد الملك طلال، الحسين، وعبد الله الثاني.</p></div>
+                </div>
+            </div>
+        </div>
+        <!-- أضف أزرار التنقل -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- رابط Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script>
+        var swiper = new Swiper('.timeline-swiper-container', {
+            slidesPerView: 'auto', 
+            spaceBetween: 25,   
+            centeredSlides: true, 
+            grabCursor: true,     
+            
+            // لجعل Swiper يتجاوب مع عرض الشاشة (أمثلة)
+            breakpoints: {
+                // عندما يكون عرض النافذة >= 600px
+                600: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                    centeredSlides: false, // قد يكون أفضل عدم التوسيط عند عرض أكثر من شريحة
+                },
+                // عندما يكون عرض النافذة >= 900px
+                900: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    centeredSlides: false,
+                },
+                // عندما يكون عرض النافذة >= 1200px
+                1200: {
+                    slidesPerView: 3.5, // لعرض جزء من الشريحة التالية
+                    spaceBetween: 30,
+                    centeredSlides: false,
+                }
+            },
+
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+
+</body>
+</html>
